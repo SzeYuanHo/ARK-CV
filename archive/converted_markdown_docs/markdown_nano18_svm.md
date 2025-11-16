@@ -1,0 +1,189 @@
+## Intelligent identification of two-dimensional nanostructures by machine-learning optical microscopy
+
+Xiaoyang Lin 1,2,§ (  ), Zhizhong Si 1,§ , Wenzhi Fu 3,§ , Jianlei Yang 3,§ , Side Guo 1 , Yuan Cao 1 , Jin Zhang 4 , Xinhe Wang 1,4 , Peng Liu 4 , Kaili Jiang 4 , and Weisheng Zhao 1,2 (  )
+
+1 Fert Beijing Research Institute, School of Microelectronics &amp; Beijing Advanced Innovation Center for Big Data and Brain Computing (BDBC), Beihang University, Beijing 100191, China
+
+2 Beihang-Goertek Joint Microelectronics Institute, Qingdao Research Institute, Beihang University, Qingdao 266000, China
+
+3 Fert Beijing Research Institute, School of Computer Science and Engineering &amp; Beijing Advanced Innovation Center for Big Data and Brain Computing (BDBC), Beihang University, Beijing 100191, China
+
+4  State Key Laboratory of Low-Dimensional Quantum Physics, Department of Physics &amp; Tsinghua-Foxconn Nanotechnology Research Center, Collaborative Innovation Center of Quantum Matter, Tsinghua University, Beijing 100084, China
+
+§ Xiaoyang Lin, Zhizhong Si, Wenzhi Fu, and Jianlei Yang contributed equally to this work.
+
+Received:
+
+14 April 2018
+
+Revised:
+
+20 July 2018
+
+Accepted:
+
+23 July 2018
+
+© Tsinghua University Press and Springer-Verlag GmbH Germany,  part  of  Springer Nature 2018
+
+## KEYWORDS
+
+machine-learning optical identification, two-dimensional (2D) material, heterostructure, artificial intelligence
+
+## 1 Introduction
+
+Two-dimensional (2D) materials have attracted increasing interest owing to their superior properties
+
+<!-- image -->
+
+## ABSTRACT
+
+Two-dimensional  (2D)  materials  and  their  heterostructures,  with  wafer-scale synthesis methods and fascinating properties, have attracted significant interest and triggered revolutions in corresponding device applications. However, facile methods to realize accurate, intelligent, and large-area characterizations of these 2D  nanostructures  are  still  highly  desired.  Herein,  we  report  the  successful application  of  machine-learning  strategy  in  the  optical  identification  of  2D nanostructures.  The  machine-learning  optical  identification  (MOI)  method endows optical microscopy with intelligent insight into the characteristic color information of 2D nanostructures in the optical photograph. The experimental results indicate that the MOI method enables accurate, intelligent, and large-area characterizations of graphene, molybdenum disulfide, and their heterostructures, including identifications of the thickness, existence of impurities, and even stacking order.  With  the  convergence  of  artificial  intelligence  and  nanoscience,  this intelligent  identification  method  can  certainly  promote  fundamental  research and wafer-scale device applications of 2D nanostructures.
+
+[1  3]. Heterostructures of 2D materials, which enable great flexibility in both junction fabrication and property engineering, have further triggered revolutions in corresponding  device  applications  [4  7].  Considering
+
+the progress in wafer-scale synthesis method [8  10], the development  of an efficient and large-area characterization technique has been a primary obstacle  for  fundamental  research  and  commercial level  applications  of  2D  nanostructures.  Among  the existing techniques, transmission electron microscopy and  scanning  tunneling  microscopy  (STM)  enables characterization  with  high  spatial  resolution  down to  the  atomic  scale  [11  14].  However,  both  these techniques  have  drawbacks  of  low-throughput  and complicated sample preparation. Atomic force microscopy  (AFM)  with  special  design  can  also  enable atomic  characterization  of  2D  materials  and  even the  interface  of  2D  heterostructures;  however,  the efficiency of this technique is limited by the presence of  surface  adsorbates  [15,  16].  Optical  spectroscopy, for example, Raman spectroscopy, can realize accurate characterization of 2D nanostructures [17]. However, the spectroscopy method usually enables local characterization  within  the  light  spot,  resulting  in limited  efficiency.  Compared  to  the  aforementioned techniques, optical microscopy methods, which enable high-speed, large-area, non-destructive, and accurate identification  of  samples  from  as-collected  optical photographs  (i.e.,  the  ability  of  wide-field  characterization), have already boosted controllable synthesis or fabrication, structure-dependent physical property measurement,  and  device  applications  of  2D  nanostructures [18  24].
+
+The  optical  microscopy  method  by  characterizing bright-field  photographs  of  2D  materials  has  been applied  for  large-area  or  even  wafer-scale  characterization  of  2D  materials  [7  8,  23  26].  Recently, identification  of  interlayer  coupling  in  2D  vertical heterojunctions has successfully extended this characterization method to 2D heterostructures, although  it  relies  on  a  modified  optical  microscope with  ability  of  photoluminescence  imaging  [27,  28]. However,  there  are  still  two  drawbacks:  (1)  Identification of 2D heterostructures by optical microscopy is  still  immature;  (2)  the  optical  microscopy  method often  relies  on  the  experience  of  the  user.  Unless intelligent image processing and identification of 2D nanostructures  are  realized,  these  drawbacks  can greatly hamper its applications. Adoption of machinelearning  strategy  in  image  identification  or  visual
+
+<!-- image -->
+
+recognition  has  achieved  distinct  advantages  and outperformed humans, implying the great  potential of  artificial  intelligence  in  image  identification  of micro  and  especially  nanostructures  [29, 30].  In  this sense,  integration  of  machine-learning  with  optical microscopy  may  realize  accurate,  intelligent,  and large-area characterization of 2D materials and even 2D heterostructures, which can further promote both fundamental research and commercial applications.
+
+In this work, we applied machine-learning strategy in  the  optical  identification  of  2D  nanostructures, including  graphene,  molybdenum  disulfide  (MoS2), and  heterostructures  of  these  two  materials.  The machine-learning optical identification (MOI) method relies  on  trainable  and  automatic  analyses  of  red, green,  and  blue  (RGB)  information  in  the  optical photograph  of  2D  nanostructures  using  a  support vector  machine (SVM) algorithm. With this intelligent insight into the characteristic color information of 2D nanostructures,  the  MOI  method  enables  accurate and intelligent characterization of 2D nanostructures, including  identification of thickness, existence of impurities, and even stacking order, which is expected to  promote  the  development  of  2D  science  and technology.
+
+## 2 Experimental
+
+The  MOI  system  is  based  on  an  optical  microscope system enhanced by self-customized software (Fig. 1). The  optical  microscope  enables  collection  of  brightfield  photographs  of  2D  nanostructures  at  different magnifications. The self-customized software further realizes  intelligent  identification  of  the  as-collected photographs according to a pre-established database and model. The intelligent identification can be sorted in  two  steps  (Fig. 1),  i.e.,  a  training  process  and  a test process. The purpose of the training process is to establish a database  and  the  corresponding  SVM model  containing  the  'fingerprint'  or  characteristic information of RGB channel intensities in the optical photograph of 2D materials with different thicknesses. During  the  training  process,  the  RGB  data  in  the optical microscope photographs of graphene or MoS2 samples at different light intensities ('training set' in Fig. 1), is manually linked to graphene or MoS2 with
+
+Figure 1 The MOI system. Schematic illustration and photograph of the MOI system. The training set contains optical microscope photographs of graphene or MoS 2 samples at different light intensities. Following the judgment of AFM and Raman spectroscopy, the RGB database and SVM model of graphene or MoS2 samples (denoted as 'training results') are established after SVM analyses of the RGB data collected from the training set. Referring to the 'training results', graphene, MoS 2 , or heterostructures of these two materials can  be  identified  according  to  their  optical  microscope  photograph  (denoted  as  'test  results').  The  brain  shaped  inset  shows  the photograph of the MOI system which includes an optical microscope enhanced by self-customized software.
+
+<!-- image -->
+
+different  number  of  layers  and  then  classified  into different categories by an SVM algorithm, following the judgments of AFM and Raman spectroscopy. The database and the SVM model with different categories of  RGB  channel  intensities  linked  to  the  sample thickness ('training result' in Fig. 1) thus make the following test process possible. During the test process, the RGB information in the photographs of graphene  or  MoS2  ('test  set'  in  Fig. 1)  is  collected and classified by the software into specific categories. These classifications result in a false-color image ('test result'  in  Fig. 1),  which  indicates  the  distribution of  substrate, 2D material (with different numbers of layers), and even impurities. Such a self-customized system  inheriting the in situ and  the  wide-field characterization features of optical microscopy thus enables accurate, intelligent, and large-area identification of 2D nanostructures.
+
+The accurate and intelligent identification relies on the optical contrast characteristics of the 2D materials [19  22]  as  well  as  the  efficient  processing  and recognition by the self-customized software [29, 30]. The following key features of the MOI system greatly improve the  performance  of  identification.  The  first one  is  the  pretreatment  of  the  photographs  before analysis.  The  pretreatment  includes  denoising  by mean  filtering  and  median  filtering,  together  with color calibration by linear scaling of G and B channels according to the R channel of the substrate. The color calibration  eliminates  possible  influence  induced  by the instability of the optical microscope system. The second  feature  is  about  the  SVM  algorithm.  For  a small set of training samples, the SVM algorithm is an efficient supervised learning model for data classification  [31].  In  the  MOI  system,  the  SVM  classifiers represent  the  training  data  of  RGB  information  in
+
+a  three-dimensional  (3D)  space  (see Fig. S1  in  the Electronic Supplementary Material (ESM)), and decide the maximum-margin planes (i.e., boundaries of  different  categories).  After  mapping  the  testing sample  into  the  same  space,  the  maximum-margin plane is evaluated to perform the classification into a  specific  category  (e.g.,  single-layered  graphene). The third feature is to perform the identification by multi-channel  information  of  RGB  data  rather  than judging  the  number  of  layers  by  only  one  channel. Unlike  conventional  identification  methods  based on the contrast difference of specific channel between the substrate and the 2D material [22, 32], which have the  disadvantage  of  spatial  inhomogeneity  of  the light intensity , our multi-channel identification method realizes intelligent identification of 2D materials and their number of layers, as well as the substrate. Such a  multi-channel  identification  method  relies  on  the optical  characteristics  of  2D  materials  in  RGB  space (see  Fig. S2  in  the  ESM  for  the  results  of  graphene and  MoS2),  which  implies  the  possibility  to  simultaneously identify impurities, 2D materials, and even
+
+2D heterostructures without the information of light intensity distribution in the optical microscope photograph.
+
+## 3 Results and discussion
+
+## 3.1 Identification of graphene
+
+Accurate and intelligent identification of the graphene sample based on the MOI system is demonstrated in Fig. 2, which is expected to benefit abundant research and  applications  of  graphene  [2,  3].  In  the  training process,  the  optical  microscope  photographs  of  the graphene  samples  (see  Figs. 2(a)  and  2(c)  for  two typical  samples)  with  deterministic  judgment  of  the thickness by AFM (Figs. 2(b) and 2(d)) are processed as a database with different categories of  RGB channel intensity linked to the sample thickness (i.e., different  number  of  layers)  and  further  analyzed by the SVM algorithm to establish a training model. The  training  result  (i.e.,  the  SVM  model)  contains as-classified  RGB  information  of  graphene  and  the
+
+<!-- image -->
+
+Figure 2 MOI of graphene sample. (a)  (d) Typical optical microscope photographs ((a) and (c)) included in the training set of graphene, including the corresponding AFM images ((b) and (d)). (e) Training result of graphene samples containing as-classified RGB information; note that the SVM model is not shown. (f) Optical microscope photograph of a mixed-layer graphene sample for test purpose; the inset shows the corresponding AFM image. (g) Thickness information of different-layer graphene in (f) by AFM analysis. (h) Test result of the sample in (f) according to the database in (e), where regions of different layers are colored in accordance with (e).
+
+<!-- image -->
+
+<!-- image -->
+
+substrate (Fig. 2(e)),  which  enable  the  following intelligent  identifications  of  graphene  thickness.  For a  mixed-layer graphene sample (see Fig. 2(f) for  the optical  microscope  photograph),  the  MOI  system automatically  refers  the  photograph  to  the  training result by analyzing the RGB information. As shown in  Fig. 2(h),  accurate  assignments  of  the  number  of graphene  layers  with  a  pixel-to-pixel  accuracy  of 96.78% are realized in agreement with the AFM results (insets of Figs. 2(f) and 2(g)), where regions of different layers are colored respectively.
+
+## 3.2 Identification of MoS2
+
+In  general,  the  MOI  method  also  works  for  other 2D materials that have characteristics in RGB space, for example, MoS2 and other transition metal dichalcogenides [19, 32]. Accurate and intelligent identification of MoS 2 sample is demonstrated in Fig. 3. Following a similar training process of graphene, the RGB information in the optical microscope photographs of MoS2 samples (Figs. 3(a) and 3(c)) is collected and analyzed  by  the  SVM  algorithm  according  to  the thickness judgment by AFM measurements (Figs. 3(b) and 3(d)). As a result, a training result containing the characteristic  RGB  information  of  MoS 2 (Fig. 3(e))  is obtained. As shown in the false-color image in Fig. 3(h), intelligent identification of the MoS 2 sample is realized automatically with a pixel-to-pixel accuracy of 94.26% based on its optical microscope photograph (Fig. 3(f)). Besides,  the  intelligent  identification  result  is  also sensitive to impurities or contaminations (black regions in  Fig. 3(h))  which  can  severely  affect  the  intrinsic property of 2D materials [33, 34]. For example, adhesive residues  appearing  as  light  green  regions  on  the substrate and encircling the MoS2 flakes in the optical microscope photograph (Fig. 3(f)) can be successfully recognized.
+
+## 3.3 Identification of 2D heterostructures
+
+With  great  flexibility in junction fabrication  and property engineering, heterostructures of 2D materials enable exploration of emerging 2D physics and novel
+
+Figure 3 MOI of MoS2 sample. (a)  (d) Typical optical microscope photographs ((a) and (c)) included in the training set of MoS 2 , where corresponding AFM images ((b) and (d)) are also present. (e) Training result of MoS 2 samples  containing  as-classified  RGB information; note that the SVM model is not shown. (f) Optical microscope photograph of a mixed-layer sample for test purpose; the inset shows the corresponding AFM image. (g) Thickness information of different-layer MoS 2 in (f) by AFM analysis. (h) Test result of the sample in (f) according to the database in (e), where regions of different layers are colored in accordance with (e). The as-identified regions of adhesive residues are blacked and the overexposed regions are grayed.
+
+<!-- image -->
+
+device applications [4  7].  Our intelligent identification method of 2D materials by their 'fingerprints' in RGB channels may further realize the identification of 2D heterostructures  and  boost  the  development  of  2D science. Figure 4(a) shows a 2D heterostructure with a  vertical  heterojunction  of  bilayer  graphene  and single-layered  MoS2,  fabricated  using  a  previously reported transfer method (see Ref. [35] for details of the transfer method). Based on the training results of graphene and MoS2 samples (see Figs. 2(e) and 3(e), and Fig. S2 in the ESM), the intelligent identification of  a  graphene-MoS2  heterostructure  is  successfully demonstrated (Fig. 4(c)).
+
+Regions of substrate, graphene, MoS2 , heterojunction, as well as the resist residues from the transfer process can be automatically recognized with a pixel-to-pixel accuracy  of  90.16%.  Detailed  analyses  of  the  RGB information from different regions (Figs. 4(d) and 4(e)) indicate  that  MoS2 dominates  the  optical  contrast of  the  heterojunction,  which  can  hamper  accurate identification of heterostructures by optical methods. According  to  the  theoretical  calculation  results  (see Fig. S3  in  the  ESM  and  Refs.  [22, 36  38]),  further optimization  of  the  oxidation  layer  thickness  and the light wavelength can be adopted to improve the performance  of  identification  and  even  realize  the identification of stacking order in the vertical heterojunction.  Besides,  further  comparison  of  the  RGB information  before  and  after  the  transfer  process (Fig. 4(e))  implies  the  feasibility  of  this  intelligent identification  method  to  evaluate  the  performance, especially the resist  residues  of  the  2D  material transfer method.
+
+## 3.4 Discussion
+
+Ever since the first application in the thickness identification of graphene [21, 22], much progress has been  achieved  in  optical  microscopy  of  2D  nanostructures  [18  20,  27  29,  32,  39].  These  breakthroughs include  characterization  capabilities  of  various  2D
+
+<!-- image -->
+
+Figure 4 MOI of 2D heterostructure sample. (a) A 2D heterostructure with a vertical heterojunction of bilayer graphene and singlelayered  MoS 2 ,  in  which  graphene  and  MoS 2 are  marked  respectively.  (b)  MoS 2 and  graphene  samples  used  to  fabricate  the heterostructure. (c) Test result of the heterostructure according to the training results of graphene and MoS 2 , where graphene and MoS 2 are marked respectively. The as-identified regions of adhesive residues are blacked. (d) RGB information of heterojunction, graphene, and MoS2 at different light intensities, where projections of 3D (RGB) data onto 2D plane (e.g., RG) are also plotted as circles. (e) Comparison of the RGB data of heterojunction, graphene, and MoS 2 at the same light intensity, together with the RGB data of graphene and MoS 2 before and after the transfer process.
+
+<!-- image -->
+
+<!-- image -->
+
+materials  and  their  heterostructures  for  additional physical properties (e.g., grain boundaries, defects, and interlayer coupling strength), as well as developments to  meet  the  demands  of  autonomous  fabrications. At  the  same  time,  artificial  intelligence,  especially machine-learning algorithm has been introduced for its  great  application  potential  in  nanoscience  and nanotechnology.  The  as-reported  intelligent  identification of 2D materials and heterostructures relies on the successful application of machine-learning strategy in  optical  microscopy  analysis.  With  the  ability  of identifying  subtle  differences  in  the  optical  RGB information,  this  method  can  realize  accurate  and efficient  identification  of  individual  2D  materials with different thicknesses. The direct identification of RGB information collected from the optical photograph avoids  possible  influence  of  the  color  conversion process, which thus improves the identification accuracy in determining the existence of multiple 2D materials and  even  the  impurities.  By  referring  to  the  optical characteristics  of  2D  materials  in  RGB  space,  this method  can  simultaneously  recognize  different  2D materials and impurities, outperforming humans, in the  characterization  of  2D  heterostructures,  thereby boosting the corresponding device applications. Besides, such  a  machine-learning  enhanced  characterization method would promote the convergence of artificial intelligence  and  nanoscience  by  inspiring  intelligent development of optical microscopy/spectroscopy and other characterization techniques.
+
+## 4 Conclusions
+
+In  summary, we report the successful application of machine-learning strategy in the optical identification of 2D nanostructures, including graphene, MoS2, and their  heterostructures.  The  MOI  method  relies  on trainable and automatic analyses of RGB information in the optical photograph of 2D nanostructures using a  SVM  algorithm.  By  endowing  optical  microscopy with  intelligent  insight  into  the  characteristic  color information of 2D materials and 2D heterostructures, the MOI method can realize accurate, intelligent, and large-area  characterizations  of  2D  nanostructures, including  the  thickness,  existence  of  resist  residues, and  even  stacking  order  in  heterostructures.  With applicability  to  wafer-scale  2D  materials  and  2D heterostructures, this intelligent identification method can  certainly  promote  fundamental  research  and commercial level applications of 2D nanostructures.
+
+## 5 Methods
+
+## 5.1 Sample preparation and characterization
+
+The graphene and the MoS2 samples were fabricated by  mechanical  exfoliation  on  silicon  wafers  with 300  nm  oxidation  layers  [40].  The  heterostructure samples  were  prepared  by  a  transfer  and  stacking method  [35].  Characterizations  of  the  samples  were performed  by  AFM  (Bruker,  MultiMode  8),  Raman spectroscopy  (Horiba,  Jobin-Yvon  LabRAM  HR800), and optical microscopy (Leica, DM2700 M). The selfcustomized  software  for  the  pretreatment,  training, and testing processes was created using MATLAB.
+
+## 5.2 Training process
+
+All  the  2D  samples  were  photographed  at  different positions and light intensities to constitute the training set. Each photograph was then divided into sub-regions by  the  contour  of  the  light  intensity  which  was obtained  from  the  photograph  of  the  substrate  (see Fig. S4 in the ESM) for the purpose of collecting more RGB  information  of  the  sample  at  different  light intensities. Median and mean filters were first adopted in  each  picture  for  noise  reduction  followed  by  a color  calibration  treatment,  i.e., scaling  the  G  and  B channel of all pixels in the whole photograph linearly based  on  a  block  of  manually  selected  substrate  as described above (see Fig. S5 in the ESM). Then, using a manually drawn mask for each photograph within the  category  for  corresponding  pixels  (e.g.,  single layered  graphene  region),  the  mean  value  of  each channel  with  the  same  category  in  one  sub-region was calculated  as  the  training  dataset.  Finally,  a  3D one vs. one linear SVM can be trained to establish the model containing the characteristic RGB information (i.e., the 'training result') using the training dataset.
+
+## 5.3 Test process
+
+For the test process, denoising and color calibration treatments  were  also  applied.  The  category  of  each
+
+pixel can then be automatically identified referring to the training result based on their characteristic RGB information.
+
+## Acknowledgements
+
+This  work  was  supported  by  the  National  Natural Science Foundation of China (Nos. 51602013, 61602022 and 61627813), the National Basic Research Program of China (No. 2012CB932301), the International Collaboration 111 Project (No. B16001), Beijing Natural Science Foundation (No. 4162039) and funding support from  Beijing  Advanced  Innovation  Center  for  Big Data  and  Brain  Computing  (BDBC).  The  authors thank Ms. X. Y. Wang and Prof. Y. Lu for valuable discussions.
+
+Electronic Supplementary Material :  Supplementary material (SVM analyses of RGB information, optical characteristics of 2D materials in RGB space, theoretical calculation results of the optical contrast, contour of the light intensity in an optical microscopy photograph, color  calibration  treatment  of  the  photograph  and theoretical  calculation  of  the  optical  contrast)  is available  in  the  online  version  of  this  article  at https://doi.org/10.1007/s12274-018-2155-0.
+
+## References
+
+- [1] Das Sarma, S.; Adam, S.; Hwang, E. H.; Rossi, E. Electronic transport  in  two-dimensional  graphene. Rev.  Mod.  Phys. 2011 , 83 , 407-470.
+- [2] Geim, A. K.; Novoselov, K. S. The rise of graphene. Nat. Mater. 2007 , 6 , 183-191.
+- [3] Lin,  X.  Y.;  Su,  L.;  Si,  Z.  Z.;  Zhang,  Y.  G.;  Bournel,  A.; Zhang, Y.; Klein, J. O.; Fert, A.; Zhao, W. S. Gate-driven pure  spin  current  in  graphene. Phys.  Rev.  Appl. 2017 , 8 , 034006.
+- [4] Novoselov,  K.  S.;  Mishchenko,  A.;  Carvalho,  A.;  Castro Neto, A. H. 2D materials and van der Waals heterostructures. Science 2016 , 353 , aac9439.
+- [5] Xia,  F.  N.;  Wang,  H.;  Xiao,  D.;  Dubey,  M.;  Ramasubramaniam, A. Two-dimensional material nanophotonics. Nat. Photonics 2014 , 8 , 899-907.
+- [6] Geim, A. K.; Grigorieva, I. V. Van der Waals heterostructures. Nature 2013 , 499 , 419-425.
+- [7] Zhang, Z. W.; Chen, P.; Duan, X. D.; Zang, K. T.; Luo, J.;
+8. Duan,  X.  F.  Robust  epitaxial  growth  of  two-dimensional heterostructures, multiheterostructures, and superlattices. Science 2017 , 357 , 788-792.
+- [8] Wu, T. R.; Zhang, X. F.; Yuan, Q. H.; Xue, J. C.; Lu, G. Y.; Liu, Z. H.; Wang, H. S.; Wang, H. M.; Ding, F.; Yu, Q. K. et al . Fast growth of inch-sized single-crystalline graphene from a controlled single nucleus on Cu-Ni alloys. Nat. Mater. 2015 , 15 , 43-47.
+- [9] Xu, X. Z.; Zhang, Z. H.; Dong, J. C.; Yi, D.; Niu, J. J.; Wu, M.  H.;  Lin,  L.;  Yin,  R.  K.;  Li,  M.  Q.;  Zhou,  J.  Y.  et  al . Ultrafast  epitaxial  growth  of  metre-sized  single-crystal graphene on industrial  Cu  foil. Sci.  Bull. 2017 , 62 ,  10741080.
+- [10]  Lee, J. H.; Lee, E. K.; Joo, W. J.; Jang, Y.; Kim, B. S.; Lim, J. Y.; Choi, S. H.; Ahn, S. J.; Ahn, J. R.; Park, M. H. et al. Wafer-scale  growth  of  single-crystal  monolayer  graphene on reusable hydrogen-terminated germanium. Science 2014 , 344 , 286-289.
+- [11]  Huang,  P.  Y.;  Ruiz-Vargas,  C.  S.;  van  der  Zande,  A.  M.; Whitney, W. S.; Levendorf, M. P.; Kevek, J. W.; Garg, S.; Alden, J. S.; Hustedt, C. J.; Zhu, Y. et al . Grains and grain boundaries in single-layer graphene atomic patchwork quilts. Nature 2011 , 469 , 389-392.
+- [12]  Meyer,  J.  C.;  Geim,  A.  K.;  Katsnelson,  M.  I.;  Novoselov, K.  S.;  Booth,  T.  J.;  Roth,  S.  The  structure  of  suspended graphene sheets. Nature 2007 , 446 , 60-63.
+- [13]  Zhao, W.; Xia, B. Y.; Lin, L.; Xiao, X. Y.; Liu, P.; Lin, X. Y.; Peng, H. L.; Zhu, Y. M.; Yu, R.; Lei, P. et al . Low-energy transmission electron diffraction and imaging of large-area graphene. Sci. Adv. 2017 , 3 , e1603231.
+- [14]  Zhang, Y. B.; Tang, T. T.; Girit, C.; Hao, Z.; Martin, M. C.; Zettl,  A.;  Crommie,  M.  F.;  Shen,  Y.  R.;  Wang,  F.  Direct observation of a widely tunable bandgap in bilayer graphene. Nature 2009 , 459 , 820-823.
+- [15]  Wastl,  D.  S.;  Weymouth,  A.  J.;  Giessibl,  F.  J.  Atomically resolved graphitic surfaces in air by atomic force microscopy. ACS Nano 2014 , 8 , 5233-5239.
+- [16]  Tu,  Q.;  Lange,  B.;  Parlak,  Z.;  Lopes,  J.  M.  J.;  Blum,  V.; Zauscher, S. Quantitative subsurface atomic structure fingerprint  for  2D  materials  and  heterostructures  by  firstprinciples-calibrated contact-resonance atomic force microscopy. ACS Nano 2016 , 10 , 6491-6500.
+- [17]  Ferrari,  A.  C.;  Basko,  D.  M.  Raman  spectroscopy  as  a versatile  tool  for  studying  the  properties  of  graphene. Nat. Nanotechnol. 2013 , 8 , 235-246.
+- [18]  Duong, D. L.; Han, G. H.; Lee, S. M.; Gunes, F.; Kim, E. S.; Kim, S. T.; Kim, H.; Ta, Q. H.; So, K. P.; Yoon, S. J. et al . Probing graphene grain boundaries with optical microscopy. Nature 2012 , 490 , 235-239.
+- [19]  Li, H.; Wu, J.; Huang, X.; Lu, G.; Yang, J.; Lu, X.; Xiong,
+
+<!-- image -->
+
+- Q. H.; Zhang, H. Rapid and reliable thickness identification of  two-dimensional  nanosheets  using  optical  microscopy. ACS Nano 2013 , 7 , 10344-10353.
+- [20]  Li,  W.;  Moon,  S.;  Wojcik,  M.;  Xu,  K.  Direct  optical visualization  of  graphene  and  its  nanoscale  defects  on transparent substrates. Nano Lett. 2016 , 16 , 5027-5031.
+- [21]  Blake,  P.;  Hill,  E.  W.;  Neto,  A.  H.  C.;  Novoselov,  K.  S.; Jiang,  D.;  Yang,  R.;  Booth,  T.  J.;  Geim,  A.  K.  Making graphene visible. Appl. Phys. Lett. 2007 , 91 , 063124.
+- [22]  Ni,  Z.  H.;  Wang,  H.  M.;  Kasim,  J.;  Fan,  H.  M.;  Yu,  T.; Wu,  Y.  H.;  Feng,  Y.  P.;  Shen,  Z.  X.  Graphene  thickness determination  using  reflection  and  contrast  spectroscopy. Nano Lett. 2007 , 7 , 2758-2763.
+- [23]  Li, X. S.; Cai, W. W.; An, J. H.; Kim, S.; Nah, J.; Yang, D. X.;  Piner,  R.;  Velamakanni,  A.;  Jung,  I.;  Tutuc,  E.  et  al . Large-area synthesis of high-quality and uniform graphene films on copper foils. Science 2009 , 324 , 1312-1314.
+- [24]  Reina, A.; Jia, X. T.; Ho, J.; Nezich, D.; Son, H.; Bulovic, V.; Dresselhaus, M. S.; Kong, J. Large area, few-layer graphene films on arbitrary substrates by chemical vapor deposition. Nano Lett. 2009 , 9 , 30-35.
+- [25]  Lee, Y.; Lee, J.; Bark, H.; Oh, I.; Ryu, G. H.; Lee, Z.; Kim, H.;  Cho,  J.  H.;  Ahn,  J.;  Lee,  C.  Synthesis  of  wafer-scale uniform molybdenum disulfide films with control over the layer number using a gas phase sulfur precursor. Nanoscale 2014 , 6 , 2821-2826.
+- [26]  Zhao, M.; Ye, Y.; Han, Y. M.; Xia, Y.; Zhu, H. Y.; Wang, S.  Q.;  Wang,  Y.;  Muller,  D.  A.;  Zhang,  X.  Large-scale chemical assembly of atomically thin transistors and circuits. Nat. Nanotechnol. 2016 , 11 , 954-959.
+- [27]  Alexeev, E. M.; Catanzaro, A.; Skrypka, O. V.; Nayak, P. K.; Ahn, S.; Pak, S.; Lee, J.; Sohn, J. I.; Novoselov, K. S.; Shin, H. S. et al . Imaging of interlayer coupling in van der Waals heterostructures  using  a  bright-field  optical  microscope. Nano Lett. 2017 , 17 , 5342-5349.
+- [28]  Tan,  Y.;  Liu,  X.  B.;  He,  Z.  L.;  Liu,  Y.  R.;  Zhao,  M.  W.; Zhang, H.; Chen, F. Tuning of interlayer coupling in largearea graphene/WSe2 van  der Waals heterostructure via ion irradiation:  Optical  evidences  and  photonic  applications. ACS Photonics 2017 , 4 , 1531-1538.
+- [29]  Nolen,  C.  M.;  Denina,  G.;  Teweldebrhan,  D.;  Bhanu,  B.; Balandin,  A.  A.  High-throughput  large-area  automated identification and quality control of graphene and few-layer graphene films. ACS Nano 2011 , 5 , 914-922.
+- [30]  Maxmen,  A.  Deep  learning  sharpens  views  of  cells  and genes. Nature 2018 , 553 , 9-10.
+- [31]  Christmann,  A.;  Steinwart,  I. Support  Vector  Machines ; Springer-Verlag: New York, 2008; pp 613.
+- [32]  Castellanos-Gomez,  A.;  Agraït,  N.;  Rubio-Bollinger,  G. Optical  identification  of  atomically  thin  dichalcogenide crystals. Appl. Phys. Lett. 2010 , 96 , 213116.
+- [33]  Zhu, F.; Lin, X. Y.; Liu, P.; Jiang, K. L.; Wei, Y.; Wu, Y.; Wang, J. P.; Fan, S. S. Heating graphene to incandescence and  the  measurement  of  its  work  function  by  thermionic emission method. Nano Res. 2014 , 7 , 553-560.
+- [34]  Castro Neto, A. H.; Guinea, F.; Peres, N. M. R.; Novoselov, K.  S.;  Geim,  A.  K.  The  electronic  properties  of  graphene. Rev. Mod. Phys. 2009 , 81 , 109-162.
+- [35]  Lu, Z. X.; Sun, L. F.; Xu, G. C.; Zheng, J. Y.; Zhang, Q.; Wang, J. Y.; Jiao, L. Y. Universal transfer and stacking of chemical  vapor  deposition  grown  two-dimensional  atomic layers with water-soluble polymer mediator. ACS Nano 2016 , 10 , 5237-5242.
+- [36]  Knittl,  Z. Optics  of  Thin  Films:  An  Optical  Multilayer Theory ; Wiley: London, 1976; pp 548.
+- [37]  Zhang,  H.;  Ma,  Y.  G.;  Wan,  Y.;  Rong,  X.;  Xie,  Z.  A.; Wang, W.; Dai, L. Measuring the refractive index of highly crystalline monolayer MoS 2 with high confidence. Sci. Rep. 2015 , 5 , 8440.
+- [38]  Palik,  E.  D. Handbook  of  Optical  Constants  of  Solids ; Elsevier: Amsterdam, 1997.
+- [39]  Masubuchi, S.; Morimoto, M.; Morikawa, S.; Onodera, M.; Asakawa,  Y.;  Watanabe,  K.;  Taniguchi,  T.;  Machida,  T. Autonomous robotic searching and assembly of twodimensional  crystals  to  build  van  der  Waals  superlattices. Nat. Commun. 2018 , 9 , 1413.
+- [40]  Novoselov, K. S.; Geim, A. K.; Morozov, S. V.; Jiang, D.; Zhang, Y.; Dubonos, S. V.; Grigorieva, I. V.; Firsov, A. A. Electric field effect in atomically thin carbon films. Science 2004 , 306 , 666-669.

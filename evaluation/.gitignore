@@ -1,0 +1,50 @@
+# Dataset files (large files, not for version control)
+datasets/data/BP/
+datasets/data/Microplastics/
+datasets/data/PanNuke/
+datasets/data/TBM/
+
+# Keep the directory structure
+!datasets/data/BP/.gitkeep
+!datasets/data/Microplastics/.gitkeep
+!datasets/data/PanNuke/.gitkeep
+!datasets/data/TBM/.gitkeep
+!datasets/data/README.md
+
+# Training outputs
+runs/
+results/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Model checkpoints (keep best models only if needed)
+*.pth
+!best_model.pth
