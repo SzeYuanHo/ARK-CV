@@ -21,7 +21,7 @@ Perfect for researchers working with:
 
 **Evaluation Pipeline** - Built-in training scripts to benchmark recommended models on your datasets
 
-**Flexible LLM Support** - Works with OpenAI, Ollama, OpenRouter, Gemini, and more
+**Flexible LLM Support** - Works with OpenAI, Ollama, OpenRouter, Gemini, and more (BYOK)
 
 ## Built With
 
